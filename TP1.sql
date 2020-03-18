@@ -10,5 +10,5 @@ CREATE TABLE `visite` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
 
-SELECT sum(nombre_visite) FROM visite;
+SELECT count(id_visiteur) AS "Nombre de visiteurs" FROM visite;
 
