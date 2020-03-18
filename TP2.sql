@@ -32,10 +32,10 @@ CREATE TABLE `pays` (
   PRIMARY KEY (`id_pays`),
   UNIQUE KEY `id_pays_UNIQUE` (`id_pays`),
   UNIQUE KEY `nom_pays_UNIQUE` (`nom_pays`)
-) ENGINE=InnoDB DEFAULT CHARSET=armscii8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 SELECT nom_pays FROM pays 
 	INNER JOIN langue_parlee ON pays.id_pays = langue_parlee.id_pays
-    LEFT JOIN langue ON langue_parlee.id_langue = langue.id_langue
+    INNER JOIN langue ON langue_parlee.id_langue = langue.id_langue
     WHERE langue.nom_langue = "anglais";
     
