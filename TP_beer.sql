@@ -25,4 +25,9 @@
 #Q13
 #SELECT ID_ARTICLE, NOM_ARTICLE, VOLUME, TITRAGE FROM article INNER JOIN type ON article.ID_TYPE = type.ID_TYPE WHERE NOM_TYPE="Trappiste";
 #Q14
-SELECT * FROM marque INNER JOIN pays ON marque.ID_PAYS = pays.ID_pays INNER JOIN continent ON pays.ID_CONTINENT = continent.ID_CONTINENT WHERE NOM_CONTINENT = "Afrique";
+#SELECT * FROM marque INNER JOIN pays ON marque.ID_PAYS = pays.ID_pays INNER JOIN continent ON pays.ID_CONTINENT = continent.ID_CONTINENT WHERE NOM_CONTINENT = "Afrique";
+#Q15
+SELECT ID_ARTICLE, NOM_ARTICLE, VOLUME, TITRAGE, NOM_MARQUE, NOM_PAYS FROM article INNER JOIN marque ON article.ID_MARQUE = marque.ID_MARQUE INNER JOIN pays ON marque.ID_PAYS = pays.ID_pays INNER JOIN continent ON pays.ID_CONTINENT = continent.ID_CONTINENT WHERE NOM_CONTINENT = "Afrique";
+
+
+
