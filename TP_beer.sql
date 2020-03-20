@@ -62,6 +62,14 @@ use beer;
 #	(select SUM(QUANTITE) FROM ventes WHERE ANNEE = 2016 AND article.ID_ARTICLE = ventes.ID_ARTICLE) AS SOMME_2016
 #FROM article
 #HAVING ABS(((SOMME_2016-SOMME_2015)/SOMME_2015)*100) < 1;
+#Q29
+#Lister les types de bières suivant l’évolution de leurs ventes entre 2015 et 2016.
+#Classer le résultat par ordre décroissant des performances.
+SELECT NOM_TYPE as TYPE_BIERE,
+	(SELECT SUM(QUANTITE) FROM ventes INNER JOIN article USING (ID_ARTICLE) INNER JOIN type USING (ID_TYPE) WHERE ANNEE = 2015 AND NOM_TYPE=TYPE_BIERE) AS VENTE_2015,
+	(SELECT SUM(QUANTITE) FROM ventes INNER JOIN article USING (ID_ARTICLE) INNER JOIN type USING (ID_TYPE) WHERE ANNEE = 2016 AND NOM_TYPE=TYPE_BIERE) AS VENTE_2016
+    #ORDER BY (VENTE_2016-VENTE_2015) DESC
+FROM type;
     
 
 
